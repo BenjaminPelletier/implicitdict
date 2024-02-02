@@ -180,3 +180,21 @@ class NestedDefinitionsData(ImplicitDict):
     @staticmethod
     def example_value():
         return ImplicitDict.parse({"special_types": {"datetime": datetime.utcnow().isoformat(), "timedelta": "12h", "yesno": "Yes", "boolean": "true"}}, NestedDefinitionsData)
+
+
+class ChallengingDocstrings(ImplicitDict):
+    """This class is intended to have docstrings that potentially elicit problematic behavior from the JSON Schema generator."""
+
+    def parse_json_result(self) -> None:
+        """Parses the JSON result into the specified type.
+        Args:
+            parse_type: ImplicitDict type to parse into.
+        Returns:
+             the parsed response (of type `parse_type`).
+        Raises:
+            QueryError: if the parsing failed.
+        """
+
+    @staticmethod
+    def example_value():
+        return ChallengingDocstrings()

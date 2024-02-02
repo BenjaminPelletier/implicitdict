@@ -7,7 +7,7 @@ from implicitdict import ImplicitDict
 import jsonschema
 
 from .test_types import ContainerData, InheritanceData, NestedDefinitionsData, NormalUsageData, OptionalData, \
-    PropertiesData, SpecialTypesData, SpecialSubclassesContainer
+    PropertiesData, SpecialTypesData, SpecialSubclassesContainer, ChallengingDocstrings
 
 
 def _resolver(t: Type) -> SchemaVars:
@@ -102,3 +102,8 @@ def test_special_types():
 def test_nested_definitions():
     data = NestedDefinitionsData.example_value()
     _verify_schema_validation(data, NestedDefinitionsData)
+
+
+def test_challenging_docstrings():
+    data = ChallengingDocstrings.example_value()
+    _verify_schema_validation(data, ChallengingDocstrings)
