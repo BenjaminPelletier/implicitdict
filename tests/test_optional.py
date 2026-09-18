@@ -1,7 +1,5 @@
 import json
 
-import pytest
-
 from implicitdict import ImplicitDict
 
 from .test_types import OptionalData
